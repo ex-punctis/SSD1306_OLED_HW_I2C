@@ -1,9 +1,11 @@
 /*
 ** SSD1306_OLED_HW_I2C — a minimalistic adaptation of Neven Boyanov’s SSD1306 library (http://tinusaur.org)
-** Version 2
+** for ATmega328P-based boards
+** Version 2.0
 ** Author: Ilya Perederiy
 ** Licence: open source (see LICENSE.txt for details)
-** https://bitbucket.org/paraglider/ssd1306_oled_hw_i2c/
+** former repository: https://bitbucket.org/paraglider/ssd1306_oled_hw_i2c/
+** current repository: https://github.com/ex-punctis/SSD1306_OLED_HW_I2C/
 
 Credits from the original SSD1306 library:
 

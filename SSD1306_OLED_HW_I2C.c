@@ -1,46 +1,13 @@
 /*
 ** SSD1306_OLED_HW_I2C — a minimalistic adaptation of Neven Boyanov’s SSD1306 library (http://tinusaur.org)
-** Version 2
+** for ATmega328P-based boards
+** Version 2.0
 ** Author: Ilya Perederiy
 ** Licence: open source (see LICENSE.txt for details)
 ** former repository: https://bitbucket.org/paraglider/ssd1306_oled_hw_i2c/
 ** current repository: https://github.com/ex-punctis/SSD1306_OLED_HW_I2C/
 
-This library is designed to control a 128x64 OLED display with an SSD1306 controller over I2C. In essence, it is a minimalistic adaptation of a library written for ATTiny85 and similar micro-controllers. The purpose of this adaptation is to reduce the memory footprint, and add hardware support for I2C communication on ATmega328P-based boards. The library can be used with Arduino IDE or in a plain C environment. I have tested this library on Chinese "Arduino Nano" clones as well as on a bare ATmega328P chip (running with an internal 8 MhZ oscillator).
-
-The following functions have been implemented in v2:
-
-   - initialize display                     d_init();
-   - clear display                          d_clear();
-   - turn off (sleep)                       d_off();
-   - turn on (wake up)                      d_on();
-   - change brightness (same as contrast)	d_contrast (0-255 or 0x00-0xFF);
-   - display 128x64 bitmap                  d_draw_bmp (bitmap array);
-        * declare bitmap array as const uint8_t background [] PROGMEM = {  }
-        * to make a bitmap, use gimp or another editor to make a 128x64 monochrome image,
-          then use http://en.radzio.dxp.pl/bitmap_converter/ to convert it into a byte array
-
-   - print string (8x6 ascii font)			d_print_str(x coordinate, character row, “string”, bitmap array or 0);
-        * x coordinate 0-127
-        * character row 0-7
-        * if you want the background image to be visible behind the text, specify the name of the bitmap array
-          as the last argument; otherwise use 0
-   - print variable(integers only)			d_print_int(x coordinate, character row, integer or int variable, bitmap array or 0);
-        * x coordinate 0-127
-        * character row 0-7
-        * if you want the background image to be visible behind the text, specify the name of the bitmap array
-          as the last argument; otherwise use 0 as the last argument
-
-List of changes between v1 and v2:
-    - made function names lowercase
-    - removed demonstration function
-    - added ability to display bitmaps
-    - removed function for horizontal and vertical lines
-    - adapted d_print_int and d_print_str to have the ability to preserve the background
- 
-
-
-Below are credits from the original SSD1306 library:
+Credits from the original SSD1306 library:
 
   * Copyright (c) 2016 Neven Boyanov, Tinusaur Team. All Rights Reserved.
   * Distributed as open source software under MIT License, see LICENSE.txt file.
