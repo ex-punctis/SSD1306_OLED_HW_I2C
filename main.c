@@ -3,7 +3,8 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 
-const uint8_t background [] PROGMEM = {    // 128x64 bitmap
+// 128x64 bitmap
+const uint8_t background [] PROGMEM = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0xC0, 0xE0,
 0xE0, 0xF0, 0xF0, 0xF8, 0xF0, 0xF4, 0xF0, 0xF2, 0xF2, 0xE0, 0xE0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF8,
 0xF8, 0xF8, 0xFC, 0x64, 0x70, 0x78, 0x6C, 0xBC, 0x9C, 0x7E, 0xFE, 0x72, 0x22, 0x02, 0x06, 0xF6,
@@ -72,22 +73,22 @@ const uint8_t background [] PROGMEM = {    // 128x64 bitmap
 
 
 void setup(void) {
-    // SCL bit rate = CLK / (16 + 2*TWBR*[TWSR prescaler])
-    TWSR = 0x00;    // I2C prescaler 1
-    TWBR = 2;       // I2C divider 2
-    d_init();       // Initialize OLED
+	// SCL bit rate = CLK / (16 + 2*TWBR*[TWSR prescaler])
+	TWSR = 0x00;    // I2C prescaler 1
+	TWBR = 2;       // I2C divider 2
+	d_init();       // Initialize OLED
 }
 
 
 int main(void) {
-    setup();
-    while(1){
-        d_clear();
-        d_draw_bmp(background);                               		// display bitmap
-        _delay_ms(500*3);
-        d_print_str(10, 2, "Background hidden", NO_BACKGROUND);  // print text and overwrite background
-        d_print_str(7, 5, "Background visible", background);     // print text with background visible
+	setup();
+	while(1){
+		d_clear();
+		d_draw_bmp(background);                                     // display bitmap
+		_delay_ms(500*3);
+		d_print_str(10, 2, "Background hidden", NO_BACKGROUND);     // print text and overwrite background
+		d_print_str(7, 5, "Background visible", background);        // print text with background visible
 
-        _delay_ms(1000*3);
-    }
+		_delay_ms(1000*3);
+	}
 }
