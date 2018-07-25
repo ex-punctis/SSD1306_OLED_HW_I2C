@@ -158,6 +158,7 @@ const uint8_t init_sequence [] PROGMEM = {
 /*
 // An alternative initialization sequence
 const uint8_t init_sequence [] PROGMEM = {	// Initialization Sequence
+<<<<<<< HEAD
 	0xAE,           // Display OFF (sleep mode)
 	0xA8, 0x3F,     // Set mux ratio tp select max number of rows - 64
 	0xD3, 0x00,     // Set display offset. 00 = no offset
@@ -175,6 +176,25 @@ const uint8_t init_sequence [] PROGMEM = {	// Initialization Sequence
 	                // 00=Horizontal Addressing Mode; 01=Vertical Addressing Mode;
 	                // 10=Page Addressing Mode (RESET); 11=Invalid
 	0xAF            // Display ON in normal mode
+=======
+	0xAE,			// Display OFF (sleep mode)
+	0xA8, 0x3F,     // Set mux ratio tp select max number of rows - 64
+	0xD3, 0x00,		// Set display offset. 00 = no offset
+	0xA1,			// Set Segment Re-map. A0=address mapped; A1=address 127 mapped.
+	0xC8,			// Set COM Output Scan Direction
+	0xDA, 0x12,     // Default - alternate COM pin map
+	0x81, 0x00,		// Set contrast control register
+	0xA4,			// Set display to enable rendering from GDDRAM (Graphic Display Data RAM)
+	0xA6,			// Set display mode. A6=Normal; A7=Inverse
+	0xD5, 0x80,     // Default oscillator clock (alt 0xF0)
+	0x8D, 0x14,     // Enable the charge pump
+	0xD9, 0x22,		// Set pre-charge period
+	0xDB, 0x30,     // Set the V_COMH deselect volatage to max (alt 0x20 for 0.77xVcc)
+	0x20, 0b00,		// Set Memory Addressing Mode
+                    // 00=Horizontal Addressing Mode; 01=Vertical Addressing Mode;
+                    // 10=Page Addressing Mode (RESET); 11=Invalid
+	0xAF			// Display ON in normal mode
+>>>>>>> 4ef57e6be2e27bc7e805cee18292f05865cace8f
 };
 */
 
@@ -261,14 +281,26 @@ void tw_error(void) {                            // I2C comm error handler. Blin
 void tw_start(uint8_t address) {                 // start I2C and tell the display to await commands
 	//cli();                                     // disable interrupts for the time being
 	//clk_div_1();                               // increase clock speed to max
+<<<<<<< HEAD
 
 	PORTC = (1<<PC5)|(1<<PC4);                   // internal pull-ups on SDA and SCL
 
 	TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);      // start I2C
 	while (!(TWCR&(1<<TWINT)));                  // wait
 	if ((TWSR & 0xF8) != 0x08) tw_error();       // success or error
+=======
+>>>>>>> 4ef57e6be2e27bc7e805cee18292f05865cace8f
+
+	PORTC = (1<<PC5)|(1<<PC4);                   // internal pull-ups on SDA and SCL
+
+<<<<<<< HEAD
+=======
+	TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);      // start I2C
+	while (!(TWCR&(1<<TWINT)));                  // wait
+	if ((TWSR & 0xF8) != 0x08) tw_error();       // success or error
 
 
+>>>>>>> 4ef57e6be2e27bc7e805cee18292f05865cace8f
 	TWDR = address;                              // I2C slave address + write
 	TWCR = (1<<TWINT) |(1<<TWEN);                // transmit
 	while (!(TWCR & (1<<TWINT)));                // wait for transmission
