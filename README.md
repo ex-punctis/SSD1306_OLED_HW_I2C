@@ -18,7 +18,7 @@ Modify the .ino file to your liking and upload as usual.
 
 ### AVR-GCC environment (advanced)
 
-You'll need the following files in your project folder: `SSD1306_OLED_HW_I2C.c`, `SSD1306_OLED_HW_I2C.h`, `main.c` and `Makefile`. `main.c` contains some demo code which you can replace with your own.
+You'll need the following files in your project folder: `SSD1306_OLED_HW_I2C.c`, `SSD1306_OLED_HW_I2C.h`, `main.c` and `Makefile`. `main.c` contains demo code which you can replace with your own.
 
 Assuming the avr-gcc toolchain has been set up properly, you can compile with `make all` in terminal. If you have a usbasp programmer, the firmware will be automatically uploaded (tested on Mac OS Sierra). If you have a different programmer you will need to either modify the programmer descriptor in the makefile or use `avrdude` with your custom options.
 
@@ -51,7 +51,7 @@ The following functions have been implemented in v2.0:
 * removed functions for horizontal and vertical lines
 * adapted d_print_int and d_print_str to have the ability to preserve the background
  
-If you are interested in v1 of the library, I no longer have it, but you can find an improved version at github.com/greenonline/SSD1306_OLED_HW_I2C_LIB
+If you are interested in v1 of the library, I no longer have it, but you can find an improved version at https://github.com/greenonline/SSD1306_OLED_HW_I2C_LIB
 
 ## Credits from the original SSD1306 library:
 
