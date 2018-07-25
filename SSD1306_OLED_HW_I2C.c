@@ -128,53 +128,53 @@ const uint8_t D_FONT6x8 [] PROGMEM = {
 
 // Display initialization sequence
 const uint8_t init_sequence [] PROGMEM = {
-	0xAE,			// Display OFF (sleep mode)
-	0x20, 0b00,		// Set Memory Addressing Mode
-					// 00=Horizontal Addressing Mode; 01=Vertical Addressing Mode;
-					// 10=Page Addressing Mode (RESET); 11=Invalid
-	0xB0,			// Set Page Start Address for Page Addressing Mode, 0-7
-	0xC8,			// Set COM Output Scan Direction
-	0x00,			// ---set low column address
-	0x10,			// ---set high column address
-	0x40,			// ---set start line address
-	0x81, 0x00,		// Set contrast control register
-	0xA1,			// Set Segment Re-map. A0=address mapped; A1=address 127 mapped. 
-	0xA6,			// Set display mode. A6=Normal; A7=Inverse
-	0xA8, 0x3F,		// Set multiplex ratio(1 to 64)
-	0xA4,			// Output RAM to Display
-					// 0xA4=Output follows RAM content; 0xA5,Output ignores RAM content
-	0xD3, 0x00,		// Set display offset. 00 = no offset
-	0xD5,			// --set display clock divide ratio/oscillator frequency
-	0xF0,			// --set divide ratio
-	0xD9, 0x22,		// Set pre-charge period
-	0xDA, 0x12,		// Set com pins hardware configuration		
-	0xDB,			// --set vcomh
-	0x20,			// 0x20,0.77xVcc
-	0x8D, 0x14,		// Set DC-DC enable
-	0xAF			// Display ON in normal mode
+	0xAE,           // Display OFF (sleep mode)
+	0x20, 0b00,     // Set Memory Addressing Mode
+	                // 00=Horizontal Addressing Mode; 01=Vertical Addressing Mode;
+	                // 10=Page Addressing Mode (RESET); 11=Invalid
+	0xB0,           // Set Page Start Address for Page Addressing Mode, 0-7
+	0xC8,           // Set COM Output Scan Direction
+	0x00,           // ---set low column address
+	0x10,           // ---set high column address
+	0x40,           // ---set start line address
+	0x81, 0x00,     // Set contrast control register
+	0xA1,           // Set Segment Re-map. A0=address mapped; A1=address 127 mapped. 
+	0xA6,           // Set display mode. A6=Normal; A7=Inverse
+	0xA8, 0x3F,     // Set multiplex ratio(1 to 64)
+	0xA4,           // Output RAM to Display
+	                // 0xA4=Output follows RAM content; 0xA5,Output ignores RAM content
+	0xD3, 0x00,     // Set display offset. 00 = no offset
+	0xD5,           // --set display clock divide ratio/oscillator frequency
+	0xF0,           // --set divide ratio
+	0xD9, 0x22,     // Set pre-charge period
+	0xDA, 0x12,     // Set com pins hardware configuration		
+	0xDB,           // --set vcomh
+	0x20,           // 0x20,0.77xVcc
+	0x8D, 0x14,     // Set DC-DC enable
+	0xAF            // Display ON in normal mode
 };
 
 
 /*
 // An alternative initialization sequence
 const uint8_t init_sequence [] PROGMEM = {	// Initialization Sequence
-	0xAE,			// Display OFF (sleep mode)
+	0xAE,           // Display OFF (sleep mode)
 	0xA8, 0x3F,     // Set mux ratio tp select max number of rows - 64
-	0xD3, 0x00,		// Set display offset. 00 = no offset
-	0xA1,			// Set Segment Re-map. A0=address mapped; A1=address 127 mapped.
-	0xC8,			// Set COM Output Scan Direction
+	0xD3, 0x00,     // Set display offset. 00 = no offset
+	0xA1,           // Set Segment Re-map. A0=address mapped; A1=address 127 mapped.
+	0xC8,           // Set COM Output Scan Direction
 	0xDA, 0x12,     // Default - alternate COM pin map
-	0x81, 0x00,		// Set contrast control register
-	0xA4,			// Set display to enable rendering from GDDRAM (Graphic Display Data RAM)
-	0xA6,			// Set display mode. A6=Normal; A7=Inverse
+	0x81, 0x00,     // Set contrast control register
+	0xA4,           // Set display to enable rendering from GDDRAM (Graphic Display Data RAM)
+	0xA6,           // Set display mode. A6=Normal; A7=Inverse
 	0xD5, 0x80,     // Default oscillator clock (alt 0xF0)
 	0x8D, 0x14,     // Enable the charge pump
-	0xD9, 0x22,		// Set pre-charge period
+	0xD9, 0x22,     // Set pre-charge period
 	0xDB, 0x30,     // Set the V_COMH deselect volatage to max (alt 0x20 for 0.77xVcc)
-	0x20, 0b00,		// Set Memory Addressing Mode
-                    // 00=Horizontal Addressing Mode; 01=Vertical Addressing Mode;
-                    // 10=Page Addressing Mode (RESET); 11=Invalid
-	0xAF			// Display ON in normal mode
+	0x20, 0b00,     // Set Memory Addressing Mode
+	                // 00=Horizontal Addressing Mode; 01=Vertical Addressing Mode;
+	                // 10=Page Addressing Mode (RESET); 11=Invalid
+	0xAF            // Display ON in normal mode
 };
 */
 
