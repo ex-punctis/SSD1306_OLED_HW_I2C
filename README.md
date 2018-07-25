@@ -33,7 +33,7 @@ The following functions have been implemented in v2.0:
 * change brightness (same as contrast) `d_contrast (0-255 or 0x00-0xFF);`
 * display 128x64 bitmap `d_draw_bmp (bitmap_array);`
 	* declare the bitmap_array as `const uint8_t bitmap_array [] PROGMEM = {  }`
-	* to obtain a bitmap byte array, use gimp or another editor to make a 128x64 monochrome image, then use http://en.radzio.dxp.pl/bitmap_converter/ to get a byte array
+	* to obtain a bitmap byte array, use gimp or another editor to make a 128x64 monochrome image, then use http://en.radzio.dxp.pl/bitmap_converter/.
 * print string (8x6 ascii font)	`d_print_str(x coordinate, character row, “string”, bitmap_array or NO_BACKGROUND);`
 	* x coordinate 0-127
 	* character row 0-7
